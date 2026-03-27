@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Nada 😂</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+            transition: all 0.3s;
+        }
+        .btn-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        #yesBtn {
+            background-color: #4CAF50;
+            color: white;
+            z-index: 10;
+        }
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="questionText">بتحبيني يا Nada؟ ✨</h1>
+    
+    <div class="btn-container">
+        <button id="yesBtn">أيوة ❤️</button>
+        <button id="noBtn">لأ 🙄</button>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const questionText = document.getElementById('questionText');
+        
+        let noSize = 1;
+        let yesClicks = 0;
+
+        yesBtn.addEventListener('click', () => {
+            yesClicks++;
+            noSize += 0.8; // زرار الـ No هيكبر جامد
+            noBtn.style.transform = `scale(${noSize})`;
+            
+            // رسايل مستفزة للهزار
+            const prankMessages = [
+                "مش سامعك يا Nada.. دوسي تاني!",
+                "الـ No بتقولك فكري كويس 😂",
+                "شكلك غلطتي في الزرار!",
+                "الـ No هتغطي على الشاشة خلاص!",
+                "يا بنتي قولي لأ أسهل!"
+            ];
+            
+            questionText.innerText = prankMessages[Math.floor(Math.random() * prankMessages.length)];
+            
+            // لو الـ No كبرت أوي، هنخليها تغطي الزرار التاني
+            if(noSize > 5) {
+                noBtn.style.zIndex = "100";
+                questionText.innerText = "خلاص الـ No كسبت يا ندى! 😂";
+            }
+        });
+
+        noBtn.addEventListener('click', () => {
+            alert("أخيراً اعترفتي بالحقيقة! 😂🏃‍♂️");
+            location.reload(); // يعمل ريفرش ويرجع كل حاجة لأصلها
+        });
+    </script>
+</body>
+</html>
