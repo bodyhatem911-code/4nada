@@ -1,94 +1,62 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Nada 😂</title>
+    <title>For Jana! 😏</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f2f5;
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 40px;
-            transition: all 0.3s;
-        }
-        .btn-container {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        button {
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
-        }
-        #yesBtn {
-            background-color: #4CAF50;
-            color: white;
-            z-index: 10;
-        }
-        #noBtn {
-            background-color: #f44336;
-            color: white;
-            position: relative;
-        }
+        body { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; background-color: #f7f7f7; font-family: 'Poppins', sans-serif; overflow: hidden; }
+        h1 { color: #222; text-align: center; font-size: 2rem; padding: 0 20px; transition: all 0.3s; }
+        .btn-container { display: flex; gap: 20px; align-items: center; position: relative; }
+        button { padding: 15px 35px; font-size: 1.3rem; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; transition: all 0.2s ease-in-out; }
+        #yesBtn { background-color: #2ecc71; color: white; position: relative; z-index: 10; }
+        #noBtn { background-color: #e74c3c; color: white; transition: transform 0.2s; }
     </style>
 </head>
 <body>
 
-    <h1 id="questionText">بتحبيني يا Nada؟ ✨</h1>
+    <h1 id="txt">Tell the truth Jana, am I the person you love the most? 🤔</h1>
     
     <div class="btn-container">
-        <button id="yesBtn">أيوة ❤️</button>
-        <button id="noBtn">لأ 🙄</button>
+        <button id="yesBtn">YES! 😍</button>
+        <button id="noBtn">No 🙄</button>
     </div>
 
     <script>
-        const yesBtn = document.getElementById('yesBtn');
-        const noBtn = document.getElementById('noBtn');
-        const questionText = document.getElementById('questionText');
+        const yes = document.getElementById('yesBtn');
+        const no = document.getElementById('noBtn');
+        const txt = document.getElementById('txt');
         
-        let noSize = 1;
+        let size = 1;
         let yesClicks = 0;
 
-        yesBtn.addEventListener('click', () => {
+        yes.addEventListener('click', () => {
             yesClicks++;
-            noSize += 0.8; // زرار الـ No هيكبر جامد
-            noBtn.style.transform = `scale(${noSize})`;
+            size += 0.9; // The NO button will grow massive
+            no.style.transform = `scale(${size})`;
             
-            // رسايل مستفزة للهزار
-            const prankMessages = [
-                "مش سامعك يا Nada.. دوسي تاني!",
-                "الـ No بتقولك فكري كويس 😂",
-                "شكلك غلطتي في الزرار!",
-                "الـ No هتغطي على الشاشة خلاص!",
-                "يا بنتي قولي لأ أسهل!"
+            // Prank messages in English
+            const msgs = [
+                "I didn't hear you, Jana.. click again!",
+                "Are you sure? The 'No' button doesn't think so 😂",
+                "Wrong choice! Try the other one!",
+                "The 'No' is taking over! 😂",
+                "Wow, that 'No' is huge!",
+                "Looks like you HAVE to love me! 😏"
             ];
             
-            questionText.innerText = prankMessages[Math.floor(Math.random() * prankMessages.length)];
+            txt.innerText = msgs[Math.floor(Math.random() * msgs.length)];
             
-            // لو الـ No كبرت أوي، هنخليها تغطي الزرار التاني
-            if(noSize > 5) {
-                noBtn.style.zIndex = "100";
-                questionText.innerText = "خلاص الـ No كسبت يا ندى! 😂";
+            // If No gets too big, make it cover everything
+            if(size > 5) {
+                no.style.zIndex = "100";
+                txt.innerText = "The 'No' wins, Jana! You're trapped! 😂";
             }
         });
 
-        noBtn.addEventListener('click', () => {
-            alert("أخيراً اعترفتي بالحقيقة! 😂🏃‍♂️");
-            location.reload(); // يعمل ريفرش ويرجع كل حاجة لأصلها
+        no.addEventListener('click', () => {
+            alert("FINALLY you admit the truth! I knew it! 😂💖");
+            location.reload(); // Refresh to reset everything
         });
     </script>
 </body>
